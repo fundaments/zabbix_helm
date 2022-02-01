@@ -26,5 +26,4 @@ spec:
       protocol: TCP
       name: {{ .Values.zabbixAgent.service.portName }}
   selector:
-    app: {{ template "zabbix.fullname" . }}
-    name: {{ template "zabbix.agent.fullname" . }}
+    name: zabbix-agent
