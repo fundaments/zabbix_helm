@@ -8,8 +8,20 @@ This Helm chart installs Zabbix in a Kubernetes cluster.
 
 - Kubernetes cluster 1.18+
 - Helm 3.0+
-- Zabbix server 5.4+
+- Zabbix server 6.0+
 - kube-state-metrics 2.13.2+
+
+*Note*
+
+kube-state-metrics (Zabbix helm chart dependency) with Openshift installation requires one modification on Replica Set level:
+
+```bash
+      securityContext:
+        runAsUser: 65534
+        runAsGroup: 65534
+        fsGroup: 65534
+```
+This block must be removed or changed.
 
 ## Zabbix Agent
 
