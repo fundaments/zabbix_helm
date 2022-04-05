@@ -40,18 +40,18 @@ spec:
             periodSeconds: 10
         {{- if .Values.zabbixProxy.resources }}
           resources:
-            {{- toYaml .Values.zabbixProxy.resources | nindent 12 }}
+{{- toYaml .Values.zabbixProxy.resources | nindent 12 }}
           {{- end }}
           volumeMounts:
             - name: storage-volume
               mountPath: "{{ .Values.zabbixProxy.persistentVolume.mountPath }}"
               subPath: "{{ .Values.zabbixProxy.persistentVolume.subPath }}"
           {{- if .Values.zabbixProxy.extraVolumeMounts }}
-        {{ toYaml .Values.zabbixProxy.extraVolumeMounts | indent 12 }}
+{{ toYaml .Values.zabbixProxy.extraVolumeMounts | indent 12 }}
           {{- end }}
-        {{- if .Values.zabbixProxy.securityContext }}
+        {{- if .Values.zabbixProxy.containerSecurityContext }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+{{- toYaml .Values.containerSecurityContext | nindent 12 }}
           {{- end }}
           env:
             {{- range .Values.zabbixProxy.env }}

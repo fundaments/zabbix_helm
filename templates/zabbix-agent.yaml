@@ -23,12 +23,12 @@ spec:
       {{- end }}
       {{- if .Values.zabbixAgent.dnsConfig }}
       dnsConfig:
-      {{ toYaml .Values.zabbixAgent.dnsConfig | indent 8 }}
+{{ toYaml .Values.zabbixAgent.dnsConfig | indent 8 }}
       {{- end }}
       hostPID: {{ .Values.zabbixAgent.hostPID }}
-      {{- if .Values.securityContext }}
+      {{- if .Values.zabbixAgent.securityContext }}
       securityContext:
-      {{ toYaml .Values.securityContext | indent 8 }}
+{{ toYaml .Values.zabbixAgent.securityContext | indent 8 }}
       {{- end }}
       serviceAccountName: {{ template "zabbix.agent.serviceAccountName" . }}
       automountServiceAccountToken: {{ .Values.zabbixAgent.serviceAccount.automountServiceAccountToken }}
@@ -57,8 +57,9 @@ spec:
             timeoutSeconds: 3
             failureThreshold: 3
             periodSeconds: 10
-          {{- with .Values.zabbixAgent.containerSecurityContext }}
-          securityContext: {{ toYaml . | nindent 12 }}
+          {{- if .Values.zabbixAgent.containerSecurityContext }}
+          securityContext:
+{{ toYaml .Values.zabbixAgent.containerSecurityContext | nindent 12 }}
           {{- end }}
           env:
             - name: ZBX_HOSTNAME
