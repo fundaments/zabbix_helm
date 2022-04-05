@@ -23,12 +23,12 @@ spec:
       {{- end }}
       {{- if .Values.zabbixAgent.dnsConfig }}
       dnsConfig:
-{{ toYaml .Values.zabbixAgent.dnsConfig | indent 8 }}
+      {{ toYaml .Values.zabbixAgent.dnsConfig | indent 8 }}
       {{- end }}
       hostPID: {{ .Values.zabbixAgent.hostPID }}
-      {{- if .Values.zabbixAgent.securityContext }}
+      {{- if .Values.securityContext }}
       securityContext:
-      {{ toYaml .Values.zabbixAgent.securityContext | indent 8 }}
+      {{ toYaml .Values.securityContext | indent 8 }}
       {{- end }}
       serviceAccountName: {{ template "zabbix.agent.serviceAccountName" . }}
       automountServiceAccountToken: {{ .Values.zabbixAgent.serviceAccount.automountServiceAccountToken }}
