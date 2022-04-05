@@ -17,11 +17,18 @@ spec:
         name: zabbix-agent
         app: zabbix
     spec:
+      {{- if .Values.zabbixAgent.hostNetwork }}
       hostNetwork: {{ .Values.zabbixAgent.hostNetwork }}
+      dnsPolicy: ClusterFirstWithHostNet
+      {{- end }}
+      {{- if .Values.zabbixAgent.dnsConfig }}
+      dnsConfig:
+{{ toYaml .Values.zabbixAgent.dnsConfig | indent 8 }}
+      {{- end }}
       hostPID: {{ .Values.zabbixAgent.hostPID }}
-      {{- if .Values.securityContext }}
+      {{- if .Values.zabbixAgent.securityContext }}
       securityContext:
-      {{ toYaml .Values.securityContext | indent 8 }}
+      {{ toYaml .Values.zabbixAgent.securityContext | indent 8 }}
       {{- end }}
       serviceAccountName: {{ template "zabbix.agent.serviceAccountName" . }}
       automountServiceAccountToken: {{ .Values.zabbixAgent.serviceAccount.automountServiceAccountToken }}

@@ -129,11 +129,11 @@ kubectl describe services zabbix -n monitoring
 
 # License
 
-[Apache License 2.0](/LICENSE)
+[GNU GPL v2](/LICENSE)
 
 # Configuration
 
-The following tables lists the configurable parameters of the chart and their default values.
+The following tables lists the main configurable parameters of the chart and their default values.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -187,7 +187,7 @@ The following tables lists the configurable parameters of the chart and their de
 | zabbixAgent.image.pullPolicy | string | `"IfNotPresent"` | Pull policy of Docker image |
 | zabbixAgent.image.pullSecrets | list | `[]` | List of dockerconfig secrets names to use when pulling images |
 | zabbixAgent.env.ZBX_HOSTNAME | string | `"zabbix-agent"` | Zabbix agent hostname Case sensitive hostname |
-| zabbixAgent.envZBX_SERVER_HOST | string | `"0.0.0.0/0"` | Zabbix server host |
+| zabbixAgent.env.ZBX_SERVER_HOST | string | `"0.0.0.0/0"` | Zabbix server host |
 | zabbixAgent.env.ZBX_SERVER_PORT | int | `10051` | Zabbix server port |
 | zabbixAgent.env.ZBX_PASSIVE_ALLOW | bool | `true` | This variable is boolean (true or false) and enables or disables feature of passive checks. By default, value is true |
 | zabbixAgent.env.ZBX_PASSIVESERVERS | string | `"0.0.0.0/0"` | The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent container |

@@ -177,6 +177,13 @@ zabbixAgent:
   ## Expose the service to the host network
   hostNetwork: true
 
+  # Specify dns configuration options for agent containers e.g ndots
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config
+  dnsConfig: {}
+  #  options:
+  #  - name: ndots
+  #    value: "1"
+
   ## Share the host process ID namespace
   hostPID: true
   ## If true, agent pods mounts host / at /host/root
