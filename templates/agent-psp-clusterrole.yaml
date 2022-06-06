@@ -11,7 +11,6 @@ rules:
       - {{ template "zabbix.agent.fullname" . }}
   - apiGroups: ['security.openshift.io']
     verbs:     ['use']
-    apiGroups: ['security.openshift.io']
     resources: ['securitycontextconstraints']
     resourceNames:
       - privileged
