@@ -8,8 +8,8 @@ icon: https://assets.zabbix.com/img/logo/zabbix_logo_500x131.png
 
 type: application
 
-version: 1.0.3
-appVersion: trunk
+version: 1.1.0
+appVersion: 6.0.5
 
 dependencies:
 - name: kube-state-metrics
