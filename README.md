@@ -39,7 +39,7 @@ Install requirement [kubectl](https://kubernetes.io/docs/reference/kubectl/overv
 
 # How to Deploy Zabbix in Kubernetes
 
-Clone this repository:
+Clone the repository:
 
 ```bash
 cd ~

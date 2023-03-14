@@ -8,7 +8,7 @@ icon: https://assets.zabbix.com/img/logo/zabbix_logo_500x131.png
 
 type: application
 
-version: 1.1.0
+version: 1.1.2
 appVersion: trunk
 
 dependencies:
