@@ -2,8 +2,9 @@
 nameOverride: ""
 ## fullnameOverride -- Override the full qualified app name
 fullnameOverride: ""
-## kubeStateMetricsEnabled -- If true, deploys the kube-state-metrics deployment
-kubeStateMetricsEnabled: true
+## kube-state-metrics.enabled -- If true, deploys the kube-state-metrics deployment
+kube-state-metrics:
+  enabled: true
 ## Service accoun for Kubernetes API
 rbac:
   ## rbac.create  Specifies whether the RBAC resources should be created

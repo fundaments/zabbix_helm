@@ -139,7 +139,7 @@ The following tables lists the main configurable parameters of the chart and the
 |-----|------|---------|-------------|
 | nameOverride | string | | replaces the name of the chart in the Chart.yaml |
 | fullnameOverride | string | | replaces the generated name |
-| kubeStateMetricsEnabled| bool | `true`| If true, deploys the kube-state-metrics deployment |
+| kube-state-metrics.enabled | bool | `true`| If true, deploys the kube-state-metrics deployment |
 | rbac.create |	bool |	`true` |	Specifies whether the RBAC resources should be created |
 | rbac.additionalRulesForClusterRole |	list |	`[]` |	Specifies additional rules  for clusterRole |
 | serviceAccount.create	| bool	| `true` | Specifies whether a service account should be created
