@@ -203,7 +203,7 @@ The following tables lists the main configurable parameters of the chart and the
 | zabbixAgent.serviceAccount.create	| bool	| `true` | Specifies whether a service account should be created
 | zabbixAgent.serviceAccount.name |	string| `zabbix-agent-service-account` |	The name of the service account to use. If not set name is generated using the fullname template |
 | zabbixAgent.nodeSelector | object | `kubernetes.io/os: linux` | nodeSelector configurations |
-| zabbixAgent.tolerations | list | ` - effect: NoSchedule key: node-role.kubernetes.io/master`| Allows to schedule Zabbix agents on tainted nodes |
+| zabbixAgent.tolerations | list | ` - effect: NoSchedule key: node-role.kubernetes.io/control-plane`| Allows to schedule Zabbix agents on tainted nodes |
 | zabbixAgent.rbac.create |	bool |	`true` |	Specifies whether the RBAC resources should be created |
 | zabbixAgent.rbac.pspEnabled |	bool |	`true` |	If true, create & use Pod Security Policy resources |
 
