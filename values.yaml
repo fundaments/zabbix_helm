@@ -5,6 +5,7 @@ fullnameOverride: ""
 ## kube-state-metrics.enabled -- If true, deploys the kube-state-metrics deployment
 kube-state-metrics:
   enabled: true
+
 ## Service accoun for Kubernetes API
 rbac:
   ## rbac.create  Specifies whether the RBAC resources should be created
@@ -215,9 +216,6 @@ zabbixAgent:
       ## This variable is boolean (true or false) and enables or disables feature of passive checks. By default, value is true
     - name: ZBX_PASSIVE_ALLOW
       value: true
-      ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent container.
-    - name: ZBX_PASSIVESERVERS
-      value: 0.0.0.0/0
       ## This variable is boolean (true or false) and enables or disables feature of active checks
     - name: ZBX_ACTIVE_ALLOW
       value: false
@@ -229,10 +227,13 @@ zabbixAgent:
       value: 4
     ## List can be extended with other environment variables listed here: https://github.com/zabbix/zabbix-docker/tree/trunk/Dockerfiles/agent2/alpine#other-variables
     ## For example:
-    ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent container. You may specify port.
+    ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent 2 container. You may specify port of Zabbix server or Zabbix proxy in such syntax: zabbix-server:10061,zabbix-proxy:10072
     ## - name: ZBX_ACTIVESERVERS 
     ##   value: ''
-      ## The variable is list of comma separated loadable Zabbix modules. It works with volume /var/lib/zabbix/modules.
+    ## The variable is comma separated list of allowed Zabbix server or proxy hosts for connections to Zabbix agent 2 container.
+    ## - name: ZBX_PASSIVESERVERS
+    ##   value: 0.0.0.0/0
+    ## The variable is list of comma separated loadable Zabbix modules. It works with volume /var/lib/zabbix/modules.
     ## - name: ZBX_LOADMODULE
     ##   value: ''
 
