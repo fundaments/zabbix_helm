@@ -29,7 +29,7 @@ spec:
 {{- end }}
 {{- if .Values.zabbixProxy.service.loadBalancerSourceRanges }}
   loadBalancerSourceRanges:
-  {{- range $cidr := .Values.pushgateway.service.loadBalancerSourceRanges }}
+  {{- range $cidr := .Values.zabbixProxy.service.loadBalancerSourceRanges }}
     - {{ $cidr }}
   {{- end }}
 {{- end }}
