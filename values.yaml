@@ -51,11 +51,10 @@ zabbixProxy:
     ## If ProxyMode is set to passive mode:
     ## List of comma delimited IP addresses, optionally in CIDR notation, or DNS names of Zabbix server. Incoming connections will be accepted only from the addresses listed here. If IPv6 support is enabled then '127.0.0.1', '::127.0.0.1', '::ffff:127.0.0.1' are treated equally and '::/0' will allow any IPv4 or IPv6 address. '0.0.0.0/0' can be used to allow any IPv4 address.
     ## Example: Server=127.0.0.1,192.168.1.0/24,::1,2001:db8::/32,zabbix.example.com
+
+    ## Note that since version 6.0 the variable ZBX_SERVER_PORT is not supported anymore. Instead, add a colon (:) followed by the port number to the end of ZBX_SERVER_HOST value.
     - name: ZBX_SERVER_HOST
       value: "127.0.0.1"
-    ## Zabbix server port
-    - name: ZBX_SERVER_PORT
-      value: 10051
     ## The variable is used to specify debug level. By default, value is 3
     - name: ZBX_DEBUGLEVEL
       value: 3

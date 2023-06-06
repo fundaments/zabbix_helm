@@ -151,12 +151,11 @@ The following tables lists the main configurable parameters of the chart and the
 | zabbixProxy.image.pullPolicy | string | `"IfNotPresent"` | Pull policy of Docker image |
 | zabbixProxy.image.pullSecrets | list | `[]` | List of dockerconfig secrets names to use when pulling images |
 | zabbixProxy.env.ZBX_PROXYMODE | int | `0` | The variable allows to switch Zabbix proxy mode. By default, value is 0 - active proxy. Allowed values are 0 - active proxy and 1 - passive proxy. |
-| zabbixProxy.env.ZBX_SERVER_HOST | string | `"127.0.0.1"` | Zabbix server host |
-| zabbixProxy.env.ZBX_SERVER_PORT | int | `10051` | Zabbix server port |
+| zabbixProxy.env.ZBX_SERVER_HOST | string | `"127.0.0.1"` | Zabbix server host. If you need to change port number, add a colon `:` followed by the port number to the end of the value. |
 | zabbixProxy.env.ZBX_DEBUGLEVEL | int | `3` |  The variable is used to specify debug level. By default, value is 3|
 | zabbixProxy.env.ZBX_JAVAGATEWAY_ENABLE | bool | `false` | The variable enable communication with Zabbix Java Gateway to collect Java related checks. By default, value is false |
 | zabbixProxy.env.ZBX_CACHESIZE | string | `"128M"` | Cache size |
-| zabbixProxy.env.ZBX_PROXYCONFIGFREQUENCY | string | `60` | How often the proxy retrieves configuration data from Zabbix server in seconds. Active proxy parameter. Ignored for passive proxies.
+| zabbixProxy.env.ZBX_PROXYCONFIGFREQUENCY | string | `60` | How often the proxy retrieves configuration data from Zabbix server in seconds. Active proxy parameter. Ignored for passive proxies. |
 | zabbixProxy.service.port | int | `10051` | Port to expose service |
 | zabbixProxy.service.annotations | object | `{}` |  Zabbix proxy data Service labels annotations |
 | zabbixProxy.service.labels | object | `{}` | Zabbix proxy data Service labels |
