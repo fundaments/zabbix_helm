@@ -24,7 +24,7 @@ spec:
           ports:
             - containerPort: {{ .Values.zabbixProxy.service.port }}
               protocol: TCP
-              name: 10051-tcp
+              name: zabbix-proxy
           startupProbe:
             tcpSocket:
               port: {{ .Values.zabbixProxy.service.port }}

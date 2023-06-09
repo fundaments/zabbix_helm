@@ -34,7 +34,7 @@ spec:
   {{- end }}
 {{- end }}
   ports:
-    - name: 10051-tcp
+    - name: zabbix-proxy
       port: {{ .Values.zabbixProxy.service.port }}
       protocol: TCP
       targetPort: {{ .Values.zabbixProxy.service.targetPort }}
