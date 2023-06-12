@@ -34,7 +34,9 @@ zabbixProxy:
     ## Tag of Docker image of Zabbix proxy
     tag: alpine-trunk
     pullPolicy: IfNotPresent
-    ## List of dockerconfig secrets names to use when pulling images
+    ## List of dockerconfig secrets names to use when pulling images. Secrets must be manually created in the namespace.
+    ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+    ##      https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry
     pullSecrets: []
 
   env:
@@ -203,7 +205,9 @@ zabbixAgent:
     ## Tag of Docker image of Zabbix agent
     tag: alpine-trunk
     pullPolicy: IfNotPresent
-    ## List of dockerconfig secrets names to use when pulling images
+    ## List of dockerconfig secrets names to use when pulling images. Secrets must be manually created in the namespace.
+    ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+    ##      https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry
     pullSecrets: []
   env:
       ## Zabbix server host

@@ -153,7 +153,7 @@ The following tables lists the main configurable parameters of the chart and the
 | zabbixProxy.image.repository | string | `"zabbix/zabbix-proxy-sqlite3"` | Zabbix proxy Docker image name |
 | zabbixProxy.image.tag | string | `"alpine-trunk"` | Tag of Docker image of Zabbix proxy |
 | zabbixProxy.image.pullPolicy | string | `"IfNotPresent"` | Pull policy of Docker image |
-| zabbixProxy.image.pullSecrets | list | `[]` | List of dockerconfig secrets names to use when pulling images |
+| zabbixProxy.image.pullSecrets | list | `[]` | List of dockerconfig secrets names to use when pulling images. Secrets must be manually created in the namespace. |
 | zabbixProxy.env.ZBX_PROXYMODE | int | `0` | The variable allows to switch Zabbix proxy mode. By default, value is 0 - active proxy. Allowed values are 0 - active proxy and 1 - passive proxy. |
 | zabbixProxy.env.ZBX_SERVER_HOST | string | `"127.0.0.1"` | Zabbix server host. If you need to change port number, add a colon `:` followed by the port number to the end of the value. |
 | zabbixProxy.env.ZBX_DEBUGLEVEL | int | `3` |  The variable is used to specify debug level. By default, value is 3|
@@ -188,7 +188,7 @@ The following tables lists the main configurable parameters of the chart and the
 | zabbixAgent.image.repository | string | `"zabbix/zabbix-agent2"` | Zabbix agent Docker image name |
 | zabbixAgent.image.tag | string | `"alpine-trunk"` | Tag of Docker image of Zabbix agent |
 | zabbixAgent.image.pullPolicy | string | `"IfNotPresent"` | Pull policy of Docker image |
-| zabbixAgent.image.pullSecrets | list | `[]` | List of dockerconfig secrets names to use when pulling images |
+| zabbixAgent.image.pullSecrets | list | `[]` | List of dockerconfig secrets names to use when pulling images. Secrets must be manually created in the namespace. |
 | zabbixAgent.env.ZBX_SERVER_HOST | string | `"0.0.0.0/0"` | Zabbix server host |
 | zabbixAgent.env.ZBX_SERVER_PORT | int | `10051` | Zabbix server port |
 | zabbixAgent.env.ZBX_PASSIVE_ALLOW | bool | `true` | This variable is boolean (true or false) and enables or disables feature of passive checks. By default, value is true |
