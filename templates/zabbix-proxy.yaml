@@ -58,6 +58,10 @@ spec:
             - name: {{ .name }}
               value: {{ .value | quote  }}
            {{- end }}
+  {{- if .Values.zabbixProxy.image.pullSecrets }}
+      imagePullSecrets:
+{{ toYaml .Values.zabbixProxy.image.pullSecrets | indent 6 }}
+      {{- end }}
   {{- if .Values.zabbixProxy.tolerations }}
       tolerations:
 {{ toYaml .Values.zabbixProxy.tolerations | indent 6 }}

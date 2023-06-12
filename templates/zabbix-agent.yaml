@@ -93,6 +93,10 @@ spec:
             {{- end }}
             {{- end }}
             {{- end }}
+  {{- if .Values.zabbixAgent.image.pullSecrets }}
+      imagePullSecrets:
+{{ toYaml .Values.zabbixAgent.image.pullSecrets | indent 6 }}
+      {{- end }}
       {{- if .Values.zabbixAgent.tolerations }}
       tolerations:
 {{ toYaml .Values.zabbixAgent.tolerations | indent 6 }}
