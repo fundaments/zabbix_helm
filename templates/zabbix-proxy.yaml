@@ -17,6 +17,7 @@ spec:
         name: zabbix-proxy
         app: zabbix
     spec:
+      shareProcessNamespace: true
       containers:
         - name: zabbix-proxy
           image: "{{ .Values.zabbixProxy.image.repository }}:{{ .Values.zabbixProxy.image.tag }}"
