@@ -146,8 +146,7 @@ helm uninstall zabbix -n monitoring
 ```
 
 # License
-
-[`GNU GPL v2`](/LICENSE)
+The project is distributed under [AGPL-3.0-only](LICENSE).
 
 # Configuration
 
