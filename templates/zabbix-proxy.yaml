@@ -39,9 +39,9 @@ spec:
             timeoutSeconds: 3
             failureThreshold: 3
             periodSeconds: 10
-        {{- if .Values.zabbixProxy.resources }}
+          {{- if .Values.zabbixProxy.resources }}
           resources:
-{{- toYaml .Values.zabbixProxy.resources | nindent 12 }}
+{{ toYaml .Values.zabbixProxy.resources | nindent 12 }}
           {{- end }}
           volumeMounts:
             - name: storage-volume
@@ -50,20 +50,20 @@ spec:
           {{- if .Values.zabbixProxy.extraVolumeMounts }}
 {{ toYaml .Values.zabbixProxy.extraVolumeMounts | indent 12 }}
           {{- end }}
-        {{- if .Values.zabbixProxy.containerSecurityContext }}
+          {{- if .Values.zabbixProxy.containerSecurityContext }}
           securityContext:
-{{- toYaml .Values.containerSecurityContext | nindent 12 }}
+{{ toYaml .Values.zabbixProxy.containerSecurityContext | nindent 12 }}
           {{- end }}
           env:
             {{- range .Values.zabbixProxy.env }}
             - name: {{ .name }}
-              value: {{ .value | quote  }}
-           {{- end }}
-  {{- if .Values.zabbixProxy.image.pullSecrets }}
+              value: {{ .value | quote }}
+            {{- end }}
+      {{- if .Values.zabbixProxy.image.pullSecrets }}
       imagePullSecrets:
 {{ toYaml .Values.zabbixProxy.image.pullSecrets | indent 6 }}
       {{- end }}
-  {{- if .Values.zabbixProxy.tolerations }}
+      {{- if .Values.zabbixProxy.tolerations }}
       tolerations:
 {{ toYaml .Values.zabbixProxy.tolerations | indent 6 }}
       {{- end }}
@@ -77,13 +77,13 @@ spec:
       {{- end }}
       volumes:
         - name: storage-volume
-      {{- if .Values.zabbixProxy.persistentVolume.enabled }}
+        {{- if .Values.zabbixProxy.persistentVolume.enabled }}
           persistentVolumeClaim:
             claimName: {{ if .Values.zabbixProxy.persistentVolume.existingClaim }}{{ .Values.zabbixProxy.persistentVolume.existingClaim }}{{- else }}{{ template "zabbix.proxy.fullname" . }}{{- end }}
-      {{- else}}
+        {{- else }}
           emptyDir: {}
-      {{- end -}}
-      {{- if .Values.zabbixProxy.extraVolumes }}
+        {{- end }}
+        {{- if .Values.zabbixProxy.extraVolumes }}
 {{ toYaml .Values.zabbixProxy.extraVolumes | indent 8 }}
-      {{- end }}
+        {{- end }}
 {{- end }}
