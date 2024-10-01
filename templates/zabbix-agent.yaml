@@ -42,21 +42,21 @@ spec:
           imagePullPolicy: {{ .Values.zabbixAgent.image.pullPolicy }}
           ports:
             - name: zabbix-agent
-              containerPort: 10050
+              containerPort: {{ .Values.zabbixAgent.service.port }}
               protocol: TCP
-          startupProbe:
-            tcpSocket:
-              port: 10050
-            initialDelaySeconds: 10
-            periodSeconds: 5
-            timeoutSeconds: 3
-            failureThreshold: 5
+          {{- with .Values.zabbixAgent.livenessProbe }}
           livenessProbe:
-            tcpSocket:
-              port: 10050
-            timeoutSeconds: 3
-            failureThreshold: 3
-            periodSeconds: 10
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.zabbixAgent.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.zabbixAgent.startupProbe }}
+          startupProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+
           {{- if .Values.zabbixAgent.containerSecurityContext }}
           securityContext:
 {{ toYaml .Values.zabbixAgent.containerSecurityContext | nindent 12 }}
