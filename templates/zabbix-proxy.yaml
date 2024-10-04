@@ -26,19 +26,18 @@ spec:
             - containerPort: {{ .Values.zabbixProxy.service.port }}
               protocol: TCP
               name: zabbix-proxy
-          startupProbe:
-            tcpSocket:
-              port: {{ .Values.zabbixProxy.service.port }}
-            initialDelaySeconds: 10
-            periodSeconds: 5
-            timeoutSeconds: 3
-            failureThreshold: 5
+          {{- with .Values.zabbixProxy.livenessProbe }}
           livenessProbe:
-            tcpSocket:
-              port: {{ .Values.zabbixProxy.service.port }}
-            timeoutSeconds: 3
-            failureThreshold: 3
-            periodSeconds: 10
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.zabbixProxy.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.zabbixProxy.startupProbe }}
+          startupProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- if .Values.zabbixProxy.resources }}
           resources:
 {{ toYaml .Values.zabbixProxy.resources | nindent 12 }}
