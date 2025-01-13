@@ -1,3 +1,10 @@
+You can add this to your repos by:
+
+helm repo add zabbix-com https://raw.githubusercontent.com/fundaments/zabbix_helm/master
+I have not found a way to do this from the zabbix.com repo. index.yaml was missing, so in this repo I added it.
+
+
+
 # Zabbix Helm Chart
 
 # Introduction
