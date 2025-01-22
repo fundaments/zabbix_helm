@@ -1,0 +1,3 @@
+[submodule "charts/kubernetes-helm"]
+	path = charts/kubernetes-helm
+	url = https://git.zabbix.com/scm/zt/kubernetes-helm.git
